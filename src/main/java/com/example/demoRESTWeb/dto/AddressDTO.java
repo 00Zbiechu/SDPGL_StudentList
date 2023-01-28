@@ -13,8 +13,8 @@ public class AddressDTO {
 
     private String street;
 
-    private String streetNumber;
+    private Integer streetNumber;
 
-    private String flatNumber;
+    private Integer flatNumber;
 
 }

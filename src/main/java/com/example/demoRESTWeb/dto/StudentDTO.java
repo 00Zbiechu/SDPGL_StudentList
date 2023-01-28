@@ -16,4 +16,6 @@ public class StudentDTO {
 
     private String surname;
 
+    private AddressDTO addressDTO;
+
 }

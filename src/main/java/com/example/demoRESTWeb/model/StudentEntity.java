@@ -19,6 +19,7 @@ public class StudentEntity {
     private String surname;
 
     @ManyToOne
+    @JoinColumn(name="address_id", referencedColumnName = "id")
     private AddressEntity addressEntity;
 
 

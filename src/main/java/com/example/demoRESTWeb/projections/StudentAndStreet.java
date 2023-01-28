@@ -3,7 +3,7 @@ package com.example.demoRESTWeb.projections;
 import lombok.Value;
 
 @Value
-public class StudentAndAddress {
+public class StudentAndStreet {
 
     String name;
 
@@ -11,8 +11,5 @@ public class StudentAndAddress {
 
     String street;
 
-    String streetNumber;
-
-    String flatNumber;
 
 }

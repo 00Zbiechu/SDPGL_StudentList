@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -18,11 +19,11 @@ public class AddressEntity {
 
     private String street;
 
-    private String streetNumber;
+    private Integer streetNumber;
 
-    private String flatNumber;
+    private Integer flatNumber;
 
     @OneToMany(mappedBy = "addressEntity")
-    private List<StudentEntity> studentEntityList;
+    private List<StudentEntity> studentEntityList = new ArrayList<>();
 
 }
