@@ -1,28 +1,29 @@
-package com.example.demoRESTWeb;
+package com.example.demoRESTWeb.controller;
 
+import com.example.demoRESTWeb.model.StudentEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class RestTest {
+public class StudentController {
 
-    private List<Student> list = new ArrayList<>();
+    private List<StudentEntity> list = new ArrayList<>();
 
 
 
     @PostMapping("addstudnet")
-    public String addStudent(@RequestBody Student student){
+    public String addStudent(@RequestBody StudentEntity studentEntity){
 
-        list.add(student);
+        list.add(studentEntity);
         return "Dodano studenta";
 
     }
 
 
     @GetMapping("getstudnetlist")
-    public List<Student> getData(){
+    public List<StudentEntity> getData(){
         return list;
     }
 
