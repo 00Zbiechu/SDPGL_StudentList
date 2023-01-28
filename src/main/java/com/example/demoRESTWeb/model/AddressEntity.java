@@ -14,7 +14,8 @@ import java.util.List;
 public class AddressEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_sequence_generator")
+    @SequenceGenerator(name = "address_sequence_generator", sequenceName = "address_seq", allocationSize=1, initialValue = 4)
     private Long id;
 
     private String street;

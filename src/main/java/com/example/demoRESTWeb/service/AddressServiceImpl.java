@@ -9,6 +9,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class AddressServiceImpl implements AddressService{
@@ -22,6 +26,13 @@ public class AddressServiceImpl implements AddressService{
         AddressEntity addressEntity = addressMapper.addressDtoToAddress(addressDTO);
         addressRepository.save(addressEntity);
 
+    }
+
+    @Override
+    public List<AddressDTO> findAllAddress() {
+        return addressRepository.findAll().stream()
+                .map(addressMapper::addressToAddressDTO)
+                .collect(Collectors.toList());
     }
 
 

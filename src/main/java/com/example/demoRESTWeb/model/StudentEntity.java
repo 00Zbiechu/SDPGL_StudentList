@@ -13,7 +13,8 @@ import javax.persistence.*;
 public class StudentEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_sequence_generator")
+    @SequenceGenerator(name = "student_sequence_generator", sequenceName = "student_seq", allocationSize = 1, initialValue = 7)
     private Long id;
     private String name;
     private String surname;

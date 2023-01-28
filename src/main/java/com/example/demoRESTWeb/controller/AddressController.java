@@ -4,10 +4,9 @@ import com.example.demoRESTWeb.dto.AddressDTO;
 import com.example.demoRESTWeb.service.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/address")
@@ -21,6 +20,13 @@ public class AddressController {
 
         addressService.saveAddress(addressDTO);
         return ResponseEntity.ok(addressDTO);
+
+    }
+
+    @GetMapping("/fetch")
+    public ResponseEntity<List<AddressDTO>> getAllAddress(){
+
+        return ResponseEntity.ok(addressService.findAllAddress());
 
     }
 
