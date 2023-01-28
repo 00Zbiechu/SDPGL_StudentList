@@ -6,6 +6,7 @@ import com.example.demoRESTWeb.mappers.AddressMapper;
 import com.example.demoRESTWeb.mappers.StudentMapper;
 import com.example.demoRESTWeb.model.AddressEntity;
 import com.example.demoRESTWeb.model.StudentEntity;
+import com.example.demoRESTWeb.projections.StudentAndAddress;
 import com.example.demoRESTWeb.projections.StudentAndStreet;
 import com.example.demoRESTWeb.repository.AddressRepository;
 import com.example.demoRESTWeb.repository.StudentRepository;
@@ -25,6 +26,7 @@ public class StudentServiceImpl implements StudentService{
     private final StudentMapper studentMapper;
 
     private final AddressRepository addressRepository;
+
     private final AddressMapper addressMapper;
 
 
@@ -62,10 +64,9 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public List<StudentDTO> getStudents() {
-        return studentRepository.findAll().stream()
-                .map(studentMapper::studentToStudentDTO)
-                .collect(Collectors.toList());
+    public List<StudentAndAddress> getStudents() {
+
+        return studentRepository.findAllStudentAndAddress();
     }
 
     @Override

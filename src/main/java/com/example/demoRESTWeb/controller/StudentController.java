@@ -3,6 +3,7 @@ package com.example.demoRESTWeb.controller;
 import com.example.demoRESTWeb.dto.AddressDTO;
 import com.example.demoRESTWeb.dto.StudentDTO;
 import com.example.demoRESTWeb.model.StudentEntity;
+import com.example.demoRESTWeb.projections.StudentAndAddress;
 import com.example.demoRESTWeb.projections.StudentAndStreet;
 import com.example.demoRESTWeb.service.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class StudentController {
     private final StudentService studentService;
 
     @GetMapping("/fetch")
-    public ResponseEntity<List<StudentDTO>> getStudents(){
+    public ResponseEntity<List<StudentAndAddress>> getStudents(){
        return ResponseEntity.ok(studentService.getStudents());
     }
 
@@ -35,11 +36,12 @@ public class StudentController {
 
 
     @PostMapping("/save")
-    public ResponseEntity<StudentDTO> addStudent(@RequestBody StudentDTO studentDTO){
+    public ResponseEntity<String> addStudent(@RequestBody StudentDTO studentDTO){
 
         studentService.saveStudent(studentDTO);
 
-        return ResponseEntity.ok(studentDTO);
+       return ResponseEntity.ok("Zapisano studenta");
+
 
     }
 
